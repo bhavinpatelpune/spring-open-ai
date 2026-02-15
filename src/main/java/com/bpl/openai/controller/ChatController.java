@@ -13,7 +13,10 @@ public class ChatController {
     private final ChatClient chatClient;
 
     public ChatController(ChatClient.Builder chatClientbuilder) {
-       this.chatClient = chatClientbuilder.build();
+       this.chatClient = chatClientbuilder
+               .defaultSystem("You can set message, Kind of ITHelpdesk assistant default message")
+               .defaultUser("How may i help you?")
+               .build();
     }
 
     @GetMapping("/chat")
